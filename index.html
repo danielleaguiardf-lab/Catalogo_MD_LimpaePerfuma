@@ -1,7 +1,7 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Catálogo M&amp;D Limpa&amp;Perfuma: produtos de limpeza, kits econômicos e pedido pelo WhatsApp."><style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style></head><body><title data-keep>Catálogo M&amp;D Limpa&amp;Perfuma</title>
 <link data-keep rel="preconnect" href="https://fonts.googleapis.com">
 <link data-keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link data-keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&amp;display=swap">
+<link data-keep rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&amp;family=Lora:ital,wght@0,700;1,700&amp;family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&amp;display=swap">
 <style data-keep>
 /* Layout: navy store band, sticky filter bar, product grid; cart opens as a sheet from the bottom bar. */
 :root{
@@ -36,8 +36,9 @@ h1,h2,h3{text-wrap:balance;margin:0}
 .band .wrap{padding-block:22px 26px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .logo{width:84px;height:84px;border-radius:50%;flex:none;background:#fff}
 .brand{flex:1 1 260px;min-width:0}
-.brand h1{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.1;letter-spacing:.2px}
-.brand h1 b{color:#4FE0D2;font-weight:800}
+.brand h1{font-family:"Lora",Georgia,"Times New Roman",serif;font-style:italic;font-weight:700;font-size:clamp(1.65rem,4.2vw,2.35rem);line-height:1.1;letter-spacing:0}
+.brand h1 .md{margin-right:.28em}
+.brand h1 b{color:#4FE0D2;font-weight:700;font-style:normal;margin:0 .04em}
 .brand p{margin:4px 0 0;opacity:.9;font-style:italic}
 .perks{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:0;list-style:none}
 .perks li{font-size:.82rem;font-weight:700;letter-spacing:.2px;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22)}
@@ -430,7 +431,7 @@ function renderShell(){
   app.innerHTML =
     '<header class="band"><div class="wrap">' +
       '<img class="logo" src="' + LOGO + '" alt="Logo M&amp;D Limpa&amp;Perfuma">' +
-      '<div class="brand"><h1>M<b>&amp;</b>D Limpa<b>&amp;</b>Perfuma</h1><p>' + esc(DATA.store.slogan) + '</p>' +
+      '<div class="brand"><h1><span class="md">M<b>&amp;</b>D</span>Limpa<b>&amp;</b>Perfuma</h1><p>' + esc(DATA.store.slogan) + '</p>' +
         '<ul class="perks">' + perks.map(function(t){ return "<li>" + esc(t) + "</li>"; }).join("") + '</ul></div>' +
       '<button class="edit-btn" id="open-editor" hidden>Editar catálogo</button>' +
     '</div></header>' + bfHtml() +
