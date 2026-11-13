@@ -196,6 +196,8 @@ main{padding-block:18px 120px}
 .more{width:100%;min-height:46px;margin:0 0 12px;border:1.5px solid var(--aqua);background:transparent;color:var(--aqua);border-radius:12px;font-weight:800}
 .note{display:flex;gap:7px;align-items:flex-start;margin:0;padding:7px 10px;border-radius:10px;background:var(--aqua-soft);color:var(--ink);font-size:.84rem;font-weight:700;line-height:1.35}
 .note span{color:var(--aqua);font-weight:900}
+.kb-foot .kd{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.86rem;font-weight:700;color:var(--muted)}
+.kb-foot .kd .off{color:var(--ok)}
 /* aroma choices */
 .mix{font-size:.84rem;color:var(--muted);font-weight:600}
 .mix b{color:var(--ink)}
@@ -250,7 +252,7 @@ var DATA = JSON.parse(document.getElementById("catalog-data").textContent);
 var CART_KEY = "md-carrinho-v1";
 var FORM_KEY = "md-cliente-v1";
 var KITDRAFT_KEY = "md-kit-rascunho-v1";
-var KIT_MIN_ITEMS = 3, KIT_MIN_PRICE = 30;
+var KIT_MIN_ITEMS = 3, KIT_MIN_PRICE = 30, KIT_DISC = 0.05;
 var kitDraft = load(KITDRAFT_KEY) || {};
 var ui = { cat: "Todos", q: "", cartOpen: false, kitOpen: false, editing: false, aroma: {}, kitSel: {} };
 var cart = load(CART_KEY) || {};
@@ -333,8 +335,8 @@ function cartItems(){
     var it = cart[k];
     if (it && it.kit){
       var kl = kitLines(it.items); if (!kl.length || it.qty <= 0) return;
-      var kt = kitTotal(kl), n = kitCount(kl);
-      out.push({ key: k, kit: true, lines: kl, p: { name: "Kit do seu jeito", size: n + " itens", category: "Kits" }, aroma: "", qty: it.qty, unit: kt, total: kt * it.qty });
+      var sep = kitTotal(kl), kt = kitPrice(sep), n = kitCount(kl);
+      out.push({ key: k, kit: true, lines: kl, sep: sep, p: { name: "Kit do seu jeito", size: n + " itens", category: "Kits" }, aroma: "", qty: it.qty, unit: kt, total: Math.round(kt * it.qty * 100) / 100 });
       return;
     }
     var p = byId(it.id);
@@ -472,7 +474,7 @@ function renderGrid(){
   });
   var grid = document.getElementById("grid");
   if (!list.length){ grid.innerHTML = '<div class="empty" style="grid-column:1/-1">Nenhum produto encontrado. Tente outra palavra ou fale com a gente no WhatsApp.</div>'; return; }
-  var banner = (ui.cat === "Todos" || /kit/i.test(ui.cat)) && !q ? '<div class="kit-banner"><div><h2>Monte seu kit</h2><p>Escolha ' + KIT_MIN_ITEMS + ' ou mais itens, com pelo menos 1 acima de ' + money(KIT_MIN_PRICE) + ', e o aroma de cada um.</p></div><button class="kit-btn" data-open-kit type="button">Montar meu kit</button></div>' : "";
+  var banner = (ui.cat === "Todos" || /kit/i.test(ui.cat)) && !q ? '<div class="kit-banner"><div><h2>Monte seu kit</h2><p>Escolha ' + KIT_MIN_ITEMS + ' ou mais itens, com pelo menos 1 acima de ' + money(KIT_MIN_PRICE) + ', e ganhe <b>5% de desconto</b> no kit.</p></div><button class="kit-btn" data-open-kit type="button">Montar meu kit</button></div>' : "";
   grid.innerHTML = banner + list.map(cardHtml).join("");
   grid.onclick = onGridClick;
   grid.onchange = function(e){
@@ -541,16 +543,16 @@ function renderBar(){
 /* ---------- kit do seu jeito ---------- */
 function kitLines(items){
   var out = [];
-  var tot = {};
-  (items || []).forEach(function(it){ tot[it.id] = (tot[it.id] || 0) + (it.qty || 0); });
+  /* kit montado: cada item pelo preço de 1 unidade (sem atacado); o desconto do kit entra só no total */
   (items || []).forEach(function(it){
     var p = byId(it.id); if (!p || !(it.qty > 0)) return;
-    var up = unitPrice(p, tot[it.id]);
+    var up = p.price;
     out.push({ id: it.id, p: p, aroma: it.aroma || "", qty: it.qty, unit: up, total: up * it.qty });
   });
   return out;
 }
 function kitTotal(lines){ return lines.reduce(function(a, l){ return a + l.total; }, 0); }
+function kitPrice(sum){ return Math.round(sum * (1 - KIT_DISC) * 100) / 100; }
 function kitCount(lines){ return lines.reduce(function(a, l){ return a + l.qty; }, 0); }
 function kitDraftItems(){ return Object.keys(kitDraft).map(function(k){ var d = kitDraft[k]; return { id: d.id, aroma: d.aroma, qty: d.qty }; }); }
 function kitStatus(){
@@ -565,7 +567,7 @@ function openKit(){
   var root = document.getElementById("kit-root");
   root.innerHTML = '<div class="sheet-bg" id="kit-bg"></div><section class="sheet" role="dialog" aria-modal="true" aria-labelledby="kit-title">' +
     '<div class="sheet-head"><div class="in"><h2 id="kit-title">Monte seu kit</h2><button class="x" id="close-kit" aria-label="Fechar">✕</button></div></div>' +
-    '<div class="sec"><p class="fine" style="margin:0">Escolha os produtos e o aroma de cada um. Para fechar o kit:</p><div class="rules" id="kit-rules"></div></div>' +
+    '<div class="sec"><p class="fine" style="margin:0">Escolha os produtos e o aroma de cada um. Os itens contam pelo preço de 1 unidade e o kit fechado ganha <b>5% de desconto</b> no total. Para fechar o kit:</p><div class="rules" id="kit-rules"></div></div>' +
     '<div class="sec" id="kit-body"></div>' +
     '<div class="kb-foot" id="kit-foot"></div></section>';
   document.getElementById("kit-bg").onclick = closeKit;
@@ -594,7 +596,7 @@ function kitRow(p){
   var inKit = Object.keys(kitDraft).filter(function(k){ return kitDraft[k].id === p.id; }).map(function(k){ var x = kitDraft[k]; return x.qty + "x" + (x.aroma ? " " + x.aroma : ""); });
   var pic = p.photo ? '<img src="' + esc(p.photo) + '" alt="">' : icon(p.category);
   return '<div class="kb-row' + (inKit.length ? " on" : "") + '"><div class="th">' + pic + '</div>' +
-    '<div class="nm">' + esc(p.name) + (p.size ? " " + esc(p.size) : "") + '<small class="num">' + money(p.price) + (p.tierMin && p.tierPrice != null ? " · " + p.tierMin + "+ por " + money(p.tierPrice) : "") + '</small>' +
+    '<div class="nm">' + esc(p.name) + (p.size ? " " + esc(p.size) : "") + '<small class="num">' + money(p.price) + ' cada</small>' +
       (inKit.length && aromas.length ? '<small>No kit: ' + esc(inKit.join(", ")) + '</small>' : "") + '</div>' +
     '<div class="ctl">' +
       (aromas.length ? '<select data-ka="' + esc(p.id) + '" aria-label="Aroma de ' + esc(p.name) + '">' + '<option value=""' + (aroma ? "" : " selected") + '>Escolha o aroma</option>' + aromas.map(function(a){ return '<option' + (a === aroma ? " selected" : "") + '>' + esc(a) + '</option>'; }).join("") + '</select>' : '<span></span>') +
@@ -617,7 +619,8 @@ function renderKit(){
   if (st.n < KIT_MIN_ITEMS) miss.push(KIT_MIN_ITEMS - st.n === 1 ? "Falta 1 item" : "Faltam " + (KIT_MIN_ITEMS - st.n) + " itens");
   if (!st.big) miss.push("escolha 1 item acima de " + money(KIT_MIN_PRICE));
   document.getElementById("kit-foot").innerHTML =
-    '<div class="tt"><span>' + st.n + (st.n === 1 ? " item" : " itens") + ' no kit</span><b class="num">' + money(st.total) + '</b></div>' +
+    (st.n ? '<div class="kd num"><span>Separado: <s>' + money(st.total) + '</s></span><span class="off">Desconto do kit (5%): −' + money(Math.round((st.total - kitPrice(st.total)) * 100) / 100) + '</span></div>' : "") +
+    '<div class="tt"><span>' + st.n + (st.n === 1 ? " item" : " itens") + ' no kit</span><b class="num">' + money(kitPrice(st.total)) + '</b></div>' +
     (miss.length ? '<div class="miss">' + esc(miss.join(" e ").replace(/^./, function(c){ return c.toUpperCase(); })) + ' para fechar o kit.</div>' : "") +
     '<button class="kb-add" id="kit-add"' + (st.ok ? "" : " disabled") + '>Adicionar kit ao carrinho</button>';
   document.getElementById("kit-add").onclick = function(){
@@ -675,7 +678,7 @@ function renderCartBody(){
   var items = cartItems(), el = document.getElementById("cart-lines");
   if (!items.length){ el.innerHTML = '<p class="empty">Seu carrinho está vazio. Escolha os produtos no catálogo.</p>'; }
   else el.innerHTML = items.map(function(i){
-    if (i.kit) return '<div class="line"><div class="nm">Kit do seu jeito <small>' + i.lines.length + (i.lines.length === 1 ? " produto" : " produtos") + ' · ' + kitCount(i.lines) + ' itens</small><ul class="kit-items">' + i.lines.map(function(l){ return '<li>' + l.qty + 'x ' + esc(l.p.name) + (l.p.size ? " " + esc(l.p.size) : "") + (l.aroma ? " (" + esc(l.aroma) + ")" : "") + '</li>'; }).join("") + '</ul></div><div class="tot num">' + money(i.total) + '</div>' +
+    if (i.kit) return '<div class="line"><div class="nm">Kit do seu jeito <small>' + i.lines.length + (i.lines.length === 1 ? " produto" : " produtos") + ' · ' + kitCount(i.lines) + ' itens · 5% de desconto (separado ' + money(i.sep) + ')</small><ul class="kit-items">' + i.lines.map(function(l){ return '<li>' + l.qty + 'x ' + esc(l.p.name) + (l.p.size ? " " + esc(l.p.size) : "") + (l.aroma ? " (" + esc(l.aroma) + ")" : "") + '</li>'; }).join("") + '</ul></div><div class="tot num">' + money(i.total) + '</div>' +
       '<div class="ctl"><div class="stepper"><button data-kk="' + esc(i.key) + '" data-d="-1" aria-label="Diminuir">−</button><span class="num">' + i.qty + '</span><button data-kk="' + esc(i.key) + '" data-d="1" aria-label="Aumentar">+</button></div><button class="rm" data-kk="' + esc(i.key) + '" data-d="rm">Remover</button></div></div>';
     return '<div class="line"><div class="nm">' + esc(i.p.name) + (!/kit/i.test(i.p.category) && i.p.size ? " " + esc(i.p.size) : "") + (i.p.contents ? '<ul class="kit-items">' + kitContentLines(i.p, i.aroma).map(function(a){ return "<li>" + esc(a) + "</li>"; }).join("") + '</ul>' : (i.aroma ? ' <small>Aroma: ' + esc(i.aroma) + '</small>' : "") + (i.p.supplier ? ' <small>' + esc(i.p.supplier) + '</small>' : "")) + '<small class="num">' + money(i.unit) + ' cada</small></div><div class="tot num">' + money(i.total) + '</div>' +
       '<div class="ctl"><div class="stepper"><button data-k="' + esc(i.key) + '" data-d="-1" aria-label="Diminuir">−</button><span class="num">' + i.qty + '</span><button data-k="' + esc(i.key) + '" data-d="1" aria-label="Aumentar">+</button></div><button class="rm" data-k="' + esc(i.key) + '" data-d="rm">Remover</button></div></div>';
@@ -707,7 +710,8 @@ function message(){
   var L = ["Olá! Quero fazer um pedido na M&D Limpa&Perfuma:", ""];
   items.forEach(function(i){
     if (i.kit){
-      L.push("• " + i.qty + "x Kit do seu jeito (" + kitCount(i.lines) + " itens) = " + money(i.total));
+      L.push("• " + i.qty + "x Kit do seu jeito (" + kitCount(i.lines) + " itens · 5% de desconto) = " + money(i.total) + (i.qty > 1 ? " (" + money(i.unit) + " cada)" : ""));
+      L.push("    Separado: " + money(i.sep) + " · Kit com 5%: " + money(i.unit));
       i.lines.forEach(function(l){ L.push("    – " + l.qty + "x " + l.p.name + (l.p.size ? " " + l.p.size : "") + (l.aroma ? " (" + l.aroma + ")" : "")); });
       return;
     }
