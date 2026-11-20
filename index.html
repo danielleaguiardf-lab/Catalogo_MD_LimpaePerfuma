@@ -277,6 +277,12 @@ main{padding-block:18px 120px}
 .mosaic{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:4px;background:#fff;padding:52px 10px 8px}
 .mosaic img{position:static!important;width:100%!important;height:100%!important;min-height:0;object-fit:contain;background:#fff}
 .mosaic.m1{grid-template-columns:1fr}
+.mosaic.m5,.mosaic.m6{grid-template-columns:repeat(3,1fr)}
+.mosaic.m5 img:first-child{grid-row:span 2}
+.card .pic:not(.mosaic) img{box-sizing:border-box;padding:44px 14px 10px}
+.card .pic.mosaic{aspect-ratio:1/1}
+.card .pic.mosaic.m1,.card .pic.mosaic.m2{aspect-ratio:4/3}
+@media (min-width:760px){.card .pic.mosaic{aspect-ratio:4/3}}
 .mosaic.m3 img:first-child{grid-row:span 2}
 .bfb{position:absolute;top:10px;left:10px;z-index:2;display:flex;flex-direction:column;align-items:center;line-height:1;background:#0B0B0D;color:#FFD23F;font-weight:900;font-size:1.25rem;padding:6px 9px 7px;border-radius:10px;box-shadow:0 0 0 2px #FFD23F}
 .bfb small{font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:#fff;margin-bottom:2px}
@@ -389,7 +395,7 @@ function build(){
     }).filter(Boolean);
     var sep = kitSeparado(k), pr = kitPreco(k);
     out.push({ id: k.id, name: k.nome, category: "Kits", isKit: true, tipo: k.tipo, tag: kitTag(k, t), size: kitSizeText(k),
-      price: pr, was: sep, off: k.preco != null && k.preco !== "" ? (sep ? Math.round((1 - pr / sep) * 100) : 0) : (k.desconto || 0), isBlack: true, aromas: [], photos: photos.slice(0, 4),
+      price: pr, was: sep, off: k.preco != null && k.preco !== "" ? (sep ? Math.round((1 - pr / sep) * 100) : 0) : (k.desconto || 0), isBlack: true, aromas: [], photos: photos.slice(0, 6),
       desc: k.desc || "", available: k.status !== "esgotado", restam: k.restam, contents: contents,
       note: sup.length ? sup.join(" e ") + ": você pode receber Girassol ou Agi Fácil (mesmo preço)." : null });
   });
