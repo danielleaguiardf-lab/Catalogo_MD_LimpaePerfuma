@@ -19,7 +19,7 @@
    "inicio": "2026-11-20",
    "fim": "2026-11-20",
    "status": "ativo",
-   "desconto": 18,
+   "desconto": 13,
    "itens": [
     {
      "id": "desinfetante",
@@ -79,7 +79,7 @@
    "inicio": "2026-11-22",
    "fim": "2026-11-22",
    "status": "ativo",
-   "desconto": 13,
+   "desconto": 12.5,
    "itens": [
     {
      "id": "amaciante-2l",
@@ -105,7 +105,7 @@
    "inicio": "2026-11-23",
    "fim": "2026-11-23",
    "status": "ativo",
-   "desconto": 15,
+   "desconto": 12.5,
    "itens": [
     {
      "id": "multiuso",
@@ -131,7 +131,7 @@
    "inicio": "2026-11-24",
    "fim": "2026-11-24",
    "status": "ativo",
-   "desconto": 13,
+   "desconto": 12.5,
    "itens": [
     {
      "id": "limpa-limo",
