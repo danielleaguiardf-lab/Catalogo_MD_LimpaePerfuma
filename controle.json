@@ -304,7 +304,8 @@
    ],
    "limite": null,
    "restam": null,
-   "preco": null
+   "preco": null,
+   "complemento": true
   }
  ],
  "avulsos": {
