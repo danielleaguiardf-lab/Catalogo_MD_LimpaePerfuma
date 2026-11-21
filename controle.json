@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-20T05:35:36.668Z",
+ "versao": "2026-11-21T23:30:00Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -279,6 +279,32 @@
    "limite": null,
    "restam": null,
    "preco": null
+  },
+  {
+   "id": "bf-kit-panos",
+   "nome": "Kit Panos",
+   "tipo": "semana",
+   "inicio": "2026-11-21",
+   "fim": "2026-11-27",
+   "status": "ativo",
+   "desconto": 5,
+   "itens": [
+    {
+     "id": "pano-xadrez",
+     "qtd": 2
+    },
+    {
+     "id": "pano-branco",
+     "qtd": 2
+    },
+    {
+     "id": "kit-microfibra",
+     "qtd": 1
+    }
+   ],
+   "limite": null,
+   "restam": null,
+   "preco": null
   }
  ],
  "avulsos": {
@@ -379,6 +405,24 @@
    "precoBlack": null
   },
   "amaciante-omex": {
+   "status": "ativo",
+   "modo": "black",
+   "preco": null,
+   "precoBlack": null
+  },
+  "pano-branco": {
+   "status": "ativo",
+   "modo": "black",
+   "preco": null,
+   "precoBlack": null
+  },
+  "pano-xadrez": {
+   "status": "ativo",
+   "modo": "black",
+   "preco": null,
+   "precoBlack": null
+  },
+  "kit-microfibra": {
    "status": "ativo",
    "modo": "black",
    "preco": null,
