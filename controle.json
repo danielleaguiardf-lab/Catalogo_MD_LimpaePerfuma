@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-22T13:56:25.970Z",
+ "versao": "2026-11-26T13:12:06.525Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -50,8 +50,8 @@
    "id": "bf-roupa-limpa",
    "nome": "Kit Roupa Limpa",
    "tipo": "dia",
-   "inicio": "2026-11-22",
-   "fim": "2026-11-22",
+   "inicio": "2026-11-26",
+   "fim": "2026-11-26",
    "status": "ativo",
    "desconto": 17,
    "itens": [
@@ -128,8 +128,8 @@
    "id": "bf-banheiro-cheiroso",
    "nome": "Kit Banheiro Cheiroso",
    "tipo": "dia",
-   "inicio": "2026-11-24",
-   "fim": "2026-11-24",
+   "inicio": "2026-11-26",
+   "fim": "2026-11-26",
    "status": "ativo",
    "desconto": 12.5,
    "itens": [
@@ -376,25 +376,25 @@
    "precoBlack": null
   },
   "amaciante-aconchego": {
-   "status": "oculto",
+   "status": "ativo",
    "modo": "normal",
    "preco": null,
    "precoBlack": null
   },
   "sabao-liquido-omex": {
-   "status": "oculto",
+   "status": "ativo",
    "modo": "normal",
    "preco": null,
    "precoBlack": null
   },
   "amaciante-soft": {
-   "status": "oculto",
+   "status": "ativo",
    "modo": "normal",
    "preco": null,
    "precoBlack": null
   },
   "sabao-po": {
-   "status": "esgotado",
+   "status": "ativo",
    "modo": "black",
    "preco": null,
    "precoBlack": null
