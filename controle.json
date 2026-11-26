@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-26T13:12:06.525Z",
+ "versao": "2026-11-26T14:22:34.993Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -377,19 +377,19 @@
   },
   "amaciante-aconchego": {
    "status": "ativo",
-   "modo": "normal",
+   "modo": "black",
    "preco": null,
    "precoBlack": null
   },
   "sabao-liquido-omex": {
    "status": "ativo",
-   "modo": "normal",
+   "modo": "black",
    "preco": null,
    "precoBlack": null
   },
   "amaciante-soft": {
    "status": "ativo",
-   "modo": "normal",
+   "modo": "black",
    "preco": null,
    "precoBlack": null
   },
