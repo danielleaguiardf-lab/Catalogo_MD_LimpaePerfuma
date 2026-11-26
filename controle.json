@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-26T14:26:55.498Z",
+ "versao": "2026-11-26T18:50:30.444Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -429,5 +429,6 @@
    "preco": null,
    "precoBlack": null
   }
- }
+ },
+ "dadosUrl": "https://script.google.com/macros/s/AKfycbxwX8z8yjRuXqPx2Ls-sf2JqNrRULf0pFgZ15KEjf8DDHA38Yjl-MEC8zE1q8fmiIx7Mw/exec"
 }
