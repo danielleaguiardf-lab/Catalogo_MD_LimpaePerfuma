@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-26T19:33:58.416Z",
+ "versao": "2026-11-27T01:49:22.498Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -10,20 +10,20 @@
    "Jandira": 40
   }
  },
- "montarKit": false,
+ "montarKit": true,
  "kits": [
   {
    "id": "bf-casa-completa",
    "nome": "Kit Casa Completa",
-   "tipo": "semana",
-   "inicio": "2026-11-20",
-   "fim": "2026-11-24",
+   "tipo": "dia",
+   "inicio": "2026-11-27",
+   "fim": "2026-11-27",
    "status": "ativo",
    "desconto": 13,
    "itens": [
     {
-     "id": "desinfetante",
-     "qtd": 1
+     "id": "desinfetante-500",
+     "qtd": 2
     },
     {
      "id": "limpa-limo",
@@ -50,8 +50,8 @@
    "id": "bf-roupa-limpa",
    "nome": "Kit Roupa Limpa",
    "tipo": "dia",
-   "inicio": "2026-11-26",
-   "fim": "2026-11-26",
+   "inicio": "2026-11-27",
+   "fim": "2026-11-27",
    "status": "ativo",
    "desconto": 17,
    "itens": [
@@ -313,7 +313,8 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "desinfetante-500": {
    "status": "ativo",
@@ -325,7 +326,8 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "agua-sanitaria-2l": {
    "status": "ativo",
@@ -337,7 +339,8 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "amaciante-2l": {
    "status": "ativo",
@@ -361,7 +364,8 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "limpa-aluminio": {
    "status": "ativo",
@@ -379,19 +383,22 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "sabao-liquido-omex": {
-   "status": "oculto",
+   "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "amaciante-soft": {
-   "status": "oculto",
+   "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "sabao-po": {
    "status": "ativo",
@@ -421,13 +428,15 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   },
   "kit-microfibra": {
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": true
   }
  },
  "dadosUrl": "https://script.google.com/macros/s/AKfycbxwX8z8yjRuXqPx2Ls-sf2JqNrRULf0pFgZ15KEjf8DDHA38Yjl-MEC8zE1q8fmiIx7Mw/exec"
