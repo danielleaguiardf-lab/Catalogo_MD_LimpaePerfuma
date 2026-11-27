@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-27T01:49:22.498Z",
+ "versao": "2026-11-27T01:56:16.048Z",
  "black": {
   "ativo": true,
   "ateOff": 30,
@@ -314,7 +314,8 @@
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 3
   },
   "desinfetante-500": {
    "status": "ativo",
@@ -327,7 +328,8 @@
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 5.2
   },
   "agua-sanitaria-2l": {
    "status": "ativo",
@@ -340,7 +342,8 @@
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 7.9
   },
   "amaciante-2l": {
    "status": "ativo",
@@ -358,14 +361,16 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false
   },
   "alcool-perfumado": {
    "status": "ativo",
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 12.5
   },
   "limpa-aluminio": {
    "status": "ativo",
@@ -384,21 +389,24 @@
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 26.3
   },
   "sabao-liquido-omex": {
    "status": "ativo",
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 29.2
   },
   "amaciante-soft": {
    "status": "ativo",
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 29.9
   },
   "sabao-po": {
    "status": "ativo",
@@ -422,7 +430,9 @@
    "status": "ativo",
    "modo": "black",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "precoPromo": 4.3,
+   "promo": true
   },
   "pano-xadrez": {
    "status": "ativo",
@@ -436,7 +446,8 @@
    "modo": "black",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": true,
+   "precoPromo": 5.4
   }
  },
  "dadosUrl": "https://script.google.com/macros/s/AKfycbxwX8z8yjRuXqPx2Ls-sf2JqNrRULf0pFgZ15KEjf8DDHA38Yjl-MEC8zE1q8fmiIx7Mw/exec"
