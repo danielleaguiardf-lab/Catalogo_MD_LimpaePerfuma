@@ -1,14 +1,15 @@
 {
- "versao": "2026-11-27T01:56:16.048Z",
+ "versao": "2026-11-28T15:00:00Z",
  "black": {
   "ativo": true,
-  "ateOff": 30,
-  "inicio": "2026-11-20",
-  "fim": "2026-11-27",
+  "ateOff": 25,
+  "inicio": "2026-11-28",
+  "fim": "2026-11-29",
   "freteGratisAcima": {
    "Itapevi": 30,
    "Jandira": 40
-  }
+  },
+  "nome": "Super Saldão da Black"
  },
  "montarKit": true,
  "kits": [
@@ -284,8 +285,8 @@
    "id": "bf-kit-panos",
    "nome": "Kit Panos",
    "tipo": "semana",
-   "inicio": "2026-11-21",
-   "fim": "2026-11-27",
+   "inicio": "2026-11-28",
+   "fim": "2026-11-29",
    "status": "ativo",
    "desconto": 5,
    "itens": [
@@ -306,148 +307,321 @@
    "restam": null,
    "preco": null,
    "complemento": true
+  },
+  {
+   "id": "sd-casa-completa",
+   "nome": "Kit Casa Completa",
+   "tipo": "semana",
+   "inicio": "2026-11-28",
+   "fim": "2026-11-29",
+   "status": "ativo",
+   "desconto": 15,
+   "itens": [
+    {
+     "id": "desinfetante",
+     "qtd": 1
+    },
+    {
+     "id": "limpa-limo",
+     "qtd": 1
+    },
+    {
+     "id": "multiuso",
+     "qtd": 1
+    },
+    {
+     "id": "sabao-liquido-ariex",
+     "qtd": 1
+    },
+    {
+     "id": "amaciante-2l",
+     "qtd": 1
+    },
+    {
+     "id": "pano-xadrez",
+     "qtd": 2
+    },
+    {
+     "id": "kit-microfibra",
+     "qtd": 1
+    }
+   ],
+   "limite": null,
+   "restam": null,
+   "preco": null
+  },
+  {
+   "id": "sd-banheiro-cheiroso",
+   "nome": "Kit Banheiro Cheiroso",
+   "tipo": "semana",
+   "inicio": "2026-11-28",
+   "fim": "2026-11-29",
+   "status": "ativo",
+   "desconto": 16,
+   "itens": [
+    {
+     "id": "limpa-limo",
+     "qtd": 1
+    },
+    {
+     "id": "desinfetante",
+     "qtd": 2
+    },
+    {
+     "id": "sabonete-liquido",
+     "qtd": 1
+    },
+    {
+     "id": "pano-xadrez",
+     "qtd": 2
+    }
+   ],
+   "limite": null,
+   "restam": null,
+   "preco": null
+  },
+  {
+   "id": "sd-lavanderia-economica",
+   "nome": "Kit Lavanderia Econômica",
+   "tipo": "semana",
+   "inicio": "2026-11-28",
+   "fim": "2026-11-29",
+   "status": "ativo",
+   "desconto": 10,
+   "itens": [
+    {
+     "id": "amaciante-2l",
+     "qtd": 2
+    },
+    {
+     "id": "agua-sanitaria-5l",
+     "qtd": 1
+    },
+    {
+     "id": "multiuso",
+     "qtd": 2
+    }
+   ],
+   "limite": null,
+   "restam": null,
+   "preco": null
+  },
+  {
+   "id": "sd-lavanderia-mgd",
+   "nome": "Kit Lavanderia MGD",
+   "tipo": "semana",
+   "inicio": "2026-11-28",
+   "fim": "2026-11-29",
+   "status": "ativo",
+   "desconto": 25,
+   "itens": [
+    {
+     "id": "sabao-liquido-omex",
+     "qtd": 1
+    },
+    {
+     "id": "amaciante-soft",
+     "qtd": 1
+    },
+    {
+     "id": "agua-sanitaria-5l",
+     "qtd": 1
+    }
+   ],
+   "limite": null,
+   "restam": null,
+   "preco": null
   }
  ],
  "avulsos": {
   "multiuso": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "saldao",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 3
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "desinfetante-500": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "saldao",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "limpa-limo": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "saldao",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 5.2
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "agua-sanitaria-2l": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "desinfetante": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "saldao",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 7.9
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "amaciante-2l": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "agua-sanitaria-5l": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "sabonete-liquido": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": false
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "alcool-perfumado": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "saldao",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 12.5
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "limpa-aluminio": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "detergente-5l": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "amaciante-aconchego": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 26.3
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "sabao-liquido-omex": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 29.2
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "amaciante-soft": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 29.9
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "sabao-po": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "sabao-liquido-ariex": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "amaciante-omex": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
-   "precoBlack": null
+   "precoBlack": null,
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "pano-branco": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "precoPromo": 4.3,
-   "promo": true
+   "precoPromo": null,
+   "promo": false,
+   "precoSaldao": null
   },
   "pano-xadrez": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": true
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
   },
   "kit-microfibra": {
    "status": "ativo",
-   "modo": "black",
+   "modo": "normal",
    "preco": null,
    "precoBlack": null,
-   "promo": true,
-   "precoPromo": 5.4
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null
+  },
+  "capa-rodo": {
+   "status": "ativo",
+   "modo": "normal",
+   "promo": false,
+   "precoPromo": null,
+   "precoSaldao": null,
+   "preco": null,
+   "precoBlack": null
   }
  },
  "dadosUrl": "https://script.google.com/macros/s/AKfycbxwX8z8yjRuXqPx2Ls-sf2JqNrRULf0pFgZ15KEjf8DDHA38Yjl-MEC8zE1q8fmiIx7Mw/exec"
