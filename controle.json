@@ -1,5 +1,5 @@
 {
- "versao": "2026-11-28T15:00:00Z",
+ "versao": "2026-11-28T16:16:36.676Z",
  "black": {
   "ativo": true,
   "ateOff": 25,
@@ -306,7 +306,7 @@
    "limite": null,
    "restam": null,
    "preco": null,
-   "complemento": true
+   "complemento": false
   },
   {
    "id": "sd-casa-completa",
@@ -459,7 +459,7 @@
    "precoBlack": null,
    "promo": false,
    "precoPromo": null,
-   "precoSaldao": null
+   "precoSaldao": 6
   },
   "agua-sanitaria-2l": {
    "status": "ativo",
@@ -477,7 +477,7 @@
    "precoBlack": null,
    "promo": false,
    "precoPromo": null,
-   "precoSaldao": null
+   "precoSaldao": 8.2
   },
   "amaciante-2l": {
    "status": "ativo",
@@ -513,7 +513,7 @@
    "precoBlack": null,
    "promo": false,
    "precoPromo": null,
-   "precoSaldao": null
+   "precoSaldao": 13
   },
   "limpa-aluminio": {
    "status": "ativo",
